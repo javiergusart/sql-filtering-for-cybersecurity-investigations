@@ -36,7 +36,6 @@ My objective was to write SQL queries to detect after-hours activity, isolate lo
 
 ## Query 1: After-Hours Failed Login Attempts
 
-### Context
 A potential security incident was reported that occurred outside regular working hours. To investigate this, I needed to identify all failed login attempts that took place after 6:00 PM. Failed attempts can indicate brute-force attacks or unauthorized access attempts.
 
 ```sql
@@ -52,8 +51,7 @@ This query filters for rows where `success = 0` (indicating a failed login) and 
 ---
 
 ## Query 2: Login Attempts on Specific Dates
-
-### Context  
+ 
 A suspicious event was reported on May 9, 2022, and I needed to investigate login activity not only on that day but also on the previous day for a complete picture of any potential lead-up activity.
 
 ```sql
@@ -69,8 +67,7 @@ This query pulls all login attempts that occurred on May 8 or May 9. By using `O
 ---
 
 ## Query 3: Login Attempts Outside of Mexico
-
-### Context  
+ 
 During the investigation, the team determined that suspicious login attempts were not originating from Mexico. To narrow the dataset and focus on external threats, I needed to exclude any login attempts where the country matched `MEX` or `MEXICO`.
 
 ```sql
@@ -85,8 +82,7 @@ This query uses the `NOT LIKE '%MEX%'` condition to exclude any country values c
 ---
 
 ## Query 4: Employees in Marketing (East Offices)
-
-### Context  
+ 
 The IT team planned a security update rollout targeting machines in the Marketing department located in East building offices. I needed to provide a filtered list of employees that matched both criteria.
 
 ```sql
@@ -103,7 +99,6 @@ This query combines both conditions using `AND`: the department must be 'Marketi
 
 ## Query 5: Employees in Sales or Finance
 
-### Context  
 Another security update was scheduled for the Sales and Finance departments. To assist with this deployment, I needed to identify all employees in either department.
 
 ```sql
@@ -120,7 +115,6 @@ This query uses `OR` to retrieve employees in either department. It’s useful w
 
 ## Query 6: Employees Not in IT
 
-### Context  
 The Information Technology (IT) department had already received the necessary updates. My task was to identify all other employees who still required the rollout.
 
 ```sql
